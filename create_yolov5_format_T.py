@@ -16,7 +16,7 @@ parent = obj  #.rstrip('22')
 filelist  = glob.glob(obj +'\*.txt')
 
 # dir = 'dataset_1008_2'
-dir = 'all3-T'
+dir = sys.argv[2]
 # +re.sub(r'[^0-9]', '', obj)
 # dir = dir[9:]
 # .rstrip('obj_train_data')
