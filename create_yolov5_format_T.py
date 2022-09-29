@@ -13,14 +13,13 @@ obj = sys.argv[1]
 # parent = 'C:\\Users\\ryuki\\Desktop\\rush_swimming\\annotated\\'
 parent = obj  #.rstrip('22')
 # obj = parent + '1008\\1008_2\\obj_train_data'
-filelist  = glob.glob(obj +'\*.txt')
+filelist  = glob.glob(obj +'/*.txt')
 
 # dir = 'dataset_1008_2'
 dir = sys.argv[2]
 # +re.sub(r'[^0-9]', '', obj)
 # dir = dir[9:]
 # .rstrip('obj_train_data')
-
 
 test_images = os.makedirs(dir+'/test/'+'images', exist_ok=True) 
 test_labels = os.makedirs(dir+'/test/'+'labels', exist_ok=True) 
@@ -30,8 +29,8 @@ val_images = os.makedirs(dir+'/val/'+'images', exist_ok=True)
 val_labels = os.makedirs(dir+'/val/'+'labels', exist_ok=True) 
 
 with open(dir+'/data.yaml', 'w') as f:
-    f.write('train: '+parent+dir+'/train/'+'images\n')
-    f.write('val: '+parent+dir+'/val/'+'images\n\n')
+    f.write('train: ./'+dir+'/train/'+'images\n')
+    f.write('val: ./'+dir+'/val/'+'images\n\n')
     f.write('nc: 1\nnames: [\'tuna\']')
 
 # test_path = dir+'/test/'
@@ -56,13 +55,4 @@ for output_path in list_path:
         print(txtpath,impath,out_text,out_image)
         shutil.move(txtpath, out_text)
         shutil.move(impath, out_image)
-        filelist  = glob.glob(obj +'\*.txt')
-
-# test_path = os.path.join(dir, 'test/') 
-# for i in list_path:
-#     if not os.path.exists(i):
-#         test_path = os.makedirs('/'+dir+'/test/'+'images') 
-#         train_path = os.makedirs('/'+dir+'/train/'+'images') 
-#         val_path = os.makedirs('/'+dir+'/val/'+'images') 
-# train_path = os.path.join(dir, 'train/') 
-# val_path = os.path.join(dir, 'val/') 
+        filelist  = glob.glob(obj +'/*.txt')
